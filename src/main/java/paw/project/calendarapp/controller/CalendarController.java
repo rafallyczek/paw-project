@@ -32,4 +32,20 @@ public class CalendarController {
         return "calendar";
     }
 
+    //Nastepny miesiąc
+    @GetMapping("/next")
+    public String nextMonth(Model model){
+        this.calendar.incrementMonth();
+        model.addAttribute("calendar", this.calendar);
+        return "redirect:/calendar";
+    }
+
+    //Poprzedni miesiąc
+    @GetMapping("/previous")
+    public String previousMonth(Model model){
+        this.calendar.decrementMonth();
+        model.addAttribute("calendar", this.calendar);
+        return "redirect:/calendar";
+    }
+
 }

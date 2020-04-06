@@ -14,6 +14,7 @@ public class Calendar {
     int month = currentDate.getMonthValue(); // Aktualny miesiąc
     String monthName = monthName(month); // Nazwa aktualnego miesiąca
     int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
+    int year = currentDate.getYear(); // Aktualny rok
     List<Integer> days = createDaysList(); // Lista dni
 
     //Konstruktor
@@ -21,17 +22,21 @@ public class Calendar {
 
     //Metody
     //Następny miesiąc
-    public void incrementMonth(int months){
-        currentDate = currentDate.plusMonths(months);
+    public void incrementMonth(){
+        currentDate = currentDate.plusMonths(1);
         daysInMonth = currentDate.lengthOfMonth();
+        year = currentDate.getYear();
+        month = currentDate.getMonthValue();
         days = createDaysList();
         monthName = monthName(month);
     }
 
     //Poprzedni miesiąc
-    public void decrementMonth(int months){
-        currentDate = currentDate.minusMonths(months);
+    public void decrementMonth(){
+        currentDate = currentDate.minusMonths(1);
         daysInMonth = currentDate.lengthOfMonth();
+        year = currentDate.getYear();
+        month = currentDate.getMonthValue();
         days = createDaysList();
         monthName = monthName(month);
     }
@@ -90,20 +95,12 @@ public class Calendar {
     }
 
     //Gettery i Settery
-    public LocalDate getDate() {
+    public LocalDate getCurrentDate() {
         return currentDate;
     }
 
-    public void setDate(LocalDate date) {
-        this.currentDate = date;
-    }
-
-    public int getDaysInMonth() {
-        return daysInMonth;
-    }
-
-    public void setDaysInMonth(int daysInMonth) {
-        this.daysInMonth = daysInMonth;
+    public void setCurrentDate(LocalDate currentDate) {
+        this.currentDate = currentDate;
     }
 
     public int getMonth() {
@@ -122,6 +119,22 @@ public class Calendar {
         this.monthName = monthName;
     }
 
+    public int getDaysInMonth() {
+        return daysInMonth;
+    }
+
+    public void setDaysInMonth(int daysInMonth) {
+        this.daysInMonth = daysInMonth;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
     public List<Integer> getDays() {
         return days;
     }
@@ -129,4 +142,5 @@ public class Calendar {
     public void setDays(List<Integer> days) {
         this.days = days;
     }
+
 }

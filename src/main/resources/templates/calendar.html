@@ -7,11 +7,14 @@
 <body>
 
     <div class="month" th:text="${calendar.monthName}"></div>
+    <div class="year" th:text="${calendar.year}"></div>
 
     <div class="container">
         <div class="result" th:each="i : ${calendar.days}">
             <div class="book" th:text="${i.intValue()}"></div>
         </div>
+        <a href="/calendar/next">Następny miesiąc</a>
+        <a href="/calendar/previous">Poprzedni miesiąc</a>
     </div>
 
 
