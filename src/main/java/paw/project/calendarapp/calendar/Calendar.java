@@ -15,7 +15,6 @@ public class Calendar {
     String monthName = monthName(month); // Nazwa aktualnego miesiąca
     int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
     int year = currentDate.getYear(); // Aktualny rok
-    List<Integer> days = createDaysList(); // Lista dni
 
     //Konstruktor
     public Calendar() {}
@@ -27,7 +26,6 @@ public class Calendar {
         daysInMonth = currentDate.lengthOfMonth();
         year = currentDate.getYear();
         month = currentDate.getMonthValue();
-        days = createDaysList();
         monthName = monthName(month);
     }
 
@@ -37,17 +35,7 @@ public class Calendar {
         daysInMonth = currentDate.lengthOfMonth();
         year = currentDate.getYear();
         month = currentDate.getMonthValue();
-        days = createDaysList();
         monthName = monthName(month);
-    }
-
-    //Utworzenie tablicy dni
-    public List<Integer> createDaysList(){
-        List<Integer> days = new ArrayList<>();
-        for(int i=0; i<this.daysInMonth; i++){
-            days.add(i+1);
-        }
-        return days;
     }
 
     //Ustal nazwę miesiąca
@@ -133,14 +121,6 @@ public class Calendar {
 
     public void setYear(int year) {
         this.year = year;
-    }
-
-    public List<Integer> getDays() {
-        return days;
-    }
-
-    public void setDays(List<Integer> days) {
-        this.days = days;
     }
 
 }

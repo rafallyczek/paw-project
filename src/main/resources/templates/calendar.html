@@ -31,7 +31,7 @@
             <div style="clear: both;"></div>
         </div>
         <div class="calendar">
-            <div class="day" th:each="i : ${calendar.days}" th:text="${i.intValue()}"></div>
+            <div class="day" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:text="${i}"></div>
             <div style="clear: both;"></div>
         </div>
         <a class="next" href="/calendar/next"><i class="icon-right-open"></i></a>
