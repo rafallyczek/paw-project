@@ -1,0 +1,76 @@
+body{
+    margin: 0;
+}
+.header{
+    width: 100%;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px;
+}
+.calendarHeader{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+    background-color: darkgray;
+    padding: 10px;
+}
+.container{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1180px;
+    background-color: darkgray;
+    padding: 10px;
+}
+.calendar{
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 745px;
+}
+.dayName{
+    padding: 5px;
+    background-color: grey;
+    float: left;
+    margin: 5px;
+    width: 85px;
+    height: 20px;
+    text-align: center;
+}
+.day{
+    padding: 5px;
+    background-color: grey;
+    float: left;
+    margin: 5px;
+    width: 85px;
+    height: 85px;
+}
+.next{
+    position: fixed;
+    top: 50%;
+    right: 50px;
+    color: grey;
+}
+.previous{
+    position: fixed;
+    top: 50%;
+    left: 50px;
+    color: grey;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.year{
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+}
+.month{
+    font-size: 20px;
+    text-align: center;
+    margin: 0;
+}

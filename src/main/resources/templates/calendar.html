@@ -3,20 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <title>CalendarApp</title>
+    <link rel="stylesheet" type="text/css" href="/styles/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/fontello/css/fontello.css">
 </head>
 <body>
 
-    <div class="month" th:text="${calendar.monthName}"></div>
-    <div class="year" th:text="${calendar.year}"></div>
-
-    <div class="container">
-        <div class="result" th:each="i : ${calendar.days}">
-            <div class="book" th:text="${i.intValue()}"></div>
-        </div>
-        <a href="/calendar/next">Następny miesiąc</a>
-        <a href="/calendar/previous">Poprzedni miesiąc</a>
+    <div class="header">
+        <h1>CalendarApp</h1>
     </div>
 
+    <div class="calendarHeader">
+
+        <p class="year" th:text="${calendar.year}"></p>
+        <p class="month" th:text="${calendar.monthName}"></p>
+
+    </div>
+
+    <div class="container">
+        <div class="calendar">
+            <div class="dayName">Poniedziałek</div>
+            <div class="dayName">Wtorek</div>
+            <div class="dayName">Środa</div>
+            <div class="dayName">Czwartek</div>
+            <div class="dayName">Piątek</div>
+            <div class="dayName">Sobota</div>
+            <div class="dayName">Niedziela</div>
+            <div style="clear: both;"></div>
+        </div>
+        <div class="calendar">
+            <div class="day" th:each="i : ${calendar.days}" th:text="${i.intValue()}"></div>
+            <div style="clear: both;"></div>
+        </div>
+        <a class="next" href="/calendar/next"><i class="icon-right-open"></i></a>
+        <a class="previous" href="/calendar/previous"><i class="icon-left-open"></i></a>
+    </div>
 
 </body>
 </html>
