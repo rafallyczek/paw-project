@@ -31,6 +31,7 @@
             <div style="clear: both;"></div>
         </div>
         <div class="calendar">
+            <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
             <div class="day" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:text="${i}"></div>
             <div style="clear: both;"></div>
         </div>

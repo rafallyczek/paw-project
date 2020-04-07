@@ -46,6 +46,14 @@ body{
     width: 85px;
     height: 85px;
 }
+.blankDay{
+    padding: 5px;
+    background-color: darkgrey;
+    float: left;
+    margin: 5px;
+    width: 85px;
+    height: 85px;
+}
 .next{
     position: fixed;
     top: 50%;

@@ -15,6 +15,7 @@ public class Calendar {
     String monthName = monthName(month); // Nazwa aktualnego miesiąca
     int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
     int year = currentDate.getYear(); // Aktualny rok
+    int dayOfWeek = currentDate.getDayOfWeek().getValue(); // Dzień tygodnia pierwszego dnia miesiąca
 
     //Konstruktor
     public Calendar() {}
@@ -27,6 +28,7 @@ public class Calendar {
         year = currentDate.getYear();
         month = currentDate.getMonthValue();
         monthName = monthName(month);
+        dayOfWeek = currentDate.getDayOfWeek().getValue();
     }
 
     //Poprzedni miesiąc
@@ -36,6 +38,7 @@ public class Calendar {
         year = currentDate.getYear();
         month = currentDate.getMonthValue();
         monthName = monthName(month);
+        dayOfWeek = currentDate.getDayOfWeek().getValue();
     }
 
     //Ustal nazwę miesiąca
@@ -121,6 +124,14 @@ public class Calendar {
 
     public void setYear(int year) {
         this.year = year;
+    }
+
+    public int getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(int dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
     }
 
 }
