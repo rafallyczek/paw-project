@@ -1,12 +1,10 @@
-package paw.project.calendarapp.calendar;
+package paw.project.calendarapp.model;
 
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
 
-@Service
+@Component
 public class Calendar {
 
     //Pola
