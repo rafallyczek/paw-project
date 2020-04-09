@@ -15,18 +15,13 @@ public class User implements UserDetails {
     //Pola
     @Id
     private Long id;
-    private String login;
+    private String username;
     private String password;
     private String email;
 
     //Metody interfejsu UserDetails
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
-    }
-
-    @Override
-    public String getUsername() {
         return null;
     }
 

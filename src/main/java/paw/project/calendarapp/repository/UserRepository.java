@@ -6,5 +6,5 @@ import paw.project.calendarapp.model.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User,Long> {
-    User findByLogin(String login);
+    User findByUsername(String username);
 }

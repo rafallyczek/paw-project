@@ -22,11 +22,11 @@ public class UserService implements UserDetailsService {
 
 
     @Override
-    public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
-        User user = userRepository.findByLogin(login);
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        User user = userRepository.findByUsername(username);
         if(user != null){
             return user;
         }
-        throw new UsernameNotFoundException("Nie znaleziono uzytkownika: "+login);
+        throw new UsernameNotFoundException("Nie znaleziono uzytkownika: "+username);
     }
 }
