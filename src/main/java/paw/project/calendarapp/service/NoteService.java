@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class NoteService {
 
-    NoteRepository noteRepository;
+    private NoteRepository noteRepository;
 
     @Autowired
     public NoteService(NoteRepository noteRepository){

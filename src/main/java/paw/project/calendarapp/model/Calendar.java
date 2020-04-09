@@ -1,22 +1,21 @@
 package paw.project.calendarapp.model;
 
+import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 
 @Component
+@Data
 public class Calendar {
 
     //Pola
-    LocalDate currentDate = LocalDate.now().withDayOfMonth(1); // Aktualna data (ustawiona na 1 dzień miesiąca)
-    int month = currentDate.getMonthValue(); // Aktualny miesiąc
-    String monthName = monthName(month); // Nazwa aktualnego miesiąca
-    int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
-    int year = currentDate.getYear(); // Aktualny rok
-    int dayOfWeek = currentDate.getDayOfWeek().getValue(); // Dzień tygodnia pierwszego dnia miesiąca
-
-    //Konstruktor
-    public Calendar() {}
+    private LocalDate currentDate = LocalDate.now().withDayOfMonth(1); // Aktualna data (ustawiona na 1 dzień miesiąca)
+    private int month = currentDate.getMonthValue(); // Aktualny miesiąc
+    private String monthName = monthName(month); // Nazwa aktualnego miesiąca
+    private int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
+    private int year = currentDate.getYear(); // Aktualny rok
+    private int dayOfWeek = currentDate.getDayOfWeek().getValue(); // Dzień tygodnia pierwszego dnia miesiąca
 
     //Metody
     //Następny miesiąc
@@ -81,55 +80,6 @@ public class Calendar {
                 break;
         }
         return monthName;
-    }
-
-    //Gettery i Settery
-    public LocalDate getCurrentDate() {
-        return currentDate;
-    }
-
-    public void setCurrentDate(LocalDate currentDate) {
-        this.currentDate = currentDate;
-    }
-
-    public int getMonth() {
-        return month;
-    }
-
-    public void setMonth(int month) {
-        this.month = month;
-    }
-
-    public String getMonthName() {
-        return monthName;
-    }
-
-    public void setMonthName(String monthName) {
-        this.monthName = monthName;
-    }
-
-    public int getDaysInMonth() {
-        return daysInMonth;
-    }
-
-    public void setDaysInMonth(int daysInMonth) {
-        this.daysInMonth = daysInMonth;
-    }
-
-    public int getYear() {
-        return year;
-    }
-
-    public void setYear(int year) {
-        this.year = year;
-    }
-
-    public int getDayOfWeek() {
-        return dayOfWeek;
-    }
-
-    public void setDayOfWeek(int dayOfWeek) {
-        this.dayOfWeek = dayOfWeek;
     }
 
 }

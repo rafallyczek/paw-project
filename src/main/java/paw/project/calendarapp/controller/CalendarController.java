@@ -12,7 +12,7 @@ import paw.project.calendarapp.model.Calendar;
 @RequestMapping("/calendar")
 public class CalendarController {
 
-    Calendar calendar;
+    private Calendar calendar;
 
     //Wstrzykiwanie obiektu Calendar
     @Autowired

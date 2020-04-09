@@ -7,7 +7,7 @@ import paw.project.calendarapp.service.NoteService;
 @Controller
 public class NoteController {
 
-    NoteService noteService;
+    private NoteService noteService;
 
     @Autowired
     public NoteController(NoteService noteService){
