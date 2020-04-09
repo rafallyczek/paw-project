@@ -20,13 +20,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailsService userDetailsService;
 
-    //Bean szyfrujący hasła
+    //metoda zwracająca bean szyfrujący hasła
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
 
-    //Konfiguracja uwierzytelniania
+    //Konfiguracja sposobu wyszukiwania użytkowników podczas uwierzytelniania
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService)

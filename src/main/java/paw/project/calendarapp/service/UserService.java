@@ -14,7 +14,7 @@ public class UserService implements UserDetailsService {
     //Pola
     private UserRepository userRepository;
 
-    //Wstrzykiwanie repozytorium
+    //Wstrzykiwanie repozytorium użytkowników
     @Autowired
     public UserService(UserRepository userRepository){
         this.userRepository = userRepository;
