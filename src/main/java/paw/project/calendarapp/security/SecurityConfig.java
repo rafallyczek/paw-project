@@ -15,15 +15,18 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
+    //Wstrzykiwanie serwisu pobierającego dane użytkownika
     @Qualifier("inMemoryUserDetailsManager")
     @Autowired
     private UserDetailsService userDetailsService;
 
+    //Bean szyfrujący hasła
     @Bean
     public PasswordEncoder encoder() {
         return new BCryptPasswordEncoder();
     }
 
+    //Konfiguracja uwierzytelniania
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception{
         auth.userDetailsService(userDetailsService)

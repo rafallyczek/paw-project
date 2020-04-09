@@ -20,7 +20,7 @@ public class UserService implements UserDetailsService {
         this.userRepository = userRepository;
     }
 
-
+    //Wyszukiwanie użytkownika
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
