@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>CalendarApp</title>
+    <link rel="stylesheet" type="text/css" href="/styles/calendar.css">
+    <link rel="stylesheet" type="text/css" href="/fontello/css/fontello.css">
+</head>
+<body>
+
+<div class="header">
+    <h1>CalendarApp</h1>
+</div>
+
+<div class="loginHeader">
+
+    <p class="title">Logowanie</p>
+
+</div>
+
+<div class="container">
+
+    <form th:method="POST" th:action="@{/login}">
+        <div class="formInputs">
+            <label for="username">Nazwa użytkownika</label>
+            <input id="username" name="username" type="text">
+        </div>
+        <div class="formInputs">
+            <label for="password">Hasło</label>
+            <input id="password" name="password" type="password">
+        </div>
+        <div style="clear: both"></div>
+        <input type="submit" value="Zaloguj">
+    </form>
+    <a class="register" href="/register">Nie masz konta? Zarejestruj się</a>
+
+</div>
+
+</body>
+</html>

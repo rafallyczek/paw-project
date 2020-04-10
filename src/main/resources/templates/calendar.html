@@ -37,6 +37,9 @@
         </div>
         <a class="next" href="/calendar/next"><i class="icon-right-open"></i></a>
         <a class="previous" href="/calendar/previous"><i class="icon-left-open"></i></a>
+        <form method="POST" th:action="@{/logout}">
+            <input type="submit" value="Wyloguj">
+        </form>
     </div>
 
 </body>

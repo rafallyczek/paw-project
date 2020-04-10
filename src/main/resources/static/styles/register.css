@@ -1,0 +1,45 @@
+body{
+    margin: 0;
+}
+.header{
+    width: 100%;
+    background-color: cornflowerblue;
+    color: white;
+    padding: 10px;
+}
+.registerHeader{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 980px;
+    background-color: darkgray;
+    padding: 10px;
+}
+.container{
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 1180px;
+    background-color: darkgray;
+    padding: 10px;
+}
+.form{
+    padding: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 745px;
+}
+.formInputs{
+    float: left;
+}
+h1{
+    text-align: center;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.title{
+    font-size: 50px;
+    text-align: center;
+    margin: 0;
+}
