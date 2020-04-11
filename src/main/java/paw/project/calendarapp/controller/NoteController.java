@@ -14,6 +14,6 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    //Tu będą jakieś metody
+    //Tu będą metody
 
 }
