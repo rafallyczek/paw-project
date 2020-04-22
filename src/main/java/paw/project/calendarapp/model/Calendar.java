@@ -4,6 +4,7 @@ import lombok.Data;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Component
 @Data
@@ -16,6 +17,7 @@ public class Calendar {
     private int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
     private int year = currentDate.getYear(); // Aktualny rok
     private int dayOfWeek = currentDate.getDayOfWeek().getValue(); // Dzień tygodnia pierwszego dnia miesiąca
+    private List<Note> notes;
 
     //Metody
     //Następny miesiąc

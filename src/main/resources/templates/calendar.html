@@ -32,7 +32,11 @@
         </div>
         <div class="calendar">
             <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
-            <div class="day" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:text="${i}"></div>
+            <div class="day" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text">
+                [[${i}]]
+                <div th:each="note : ${calendar.notes}"
+                     th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}" th:text="${note.title}"></div>
+            </div>
             <div style="clear: both;"></div>
         </div>
         <a class="next" href="/calendar/next"><i class="icon-right-open"></i></a>

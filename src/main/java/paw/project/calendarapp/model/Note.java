@@ -4,10 +4,12 @@ import lombok.Data;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
+import javax.persistence.Table;
+import java.time.LocalDate;
 
 @Entity
 @Data
+@Table(name = "Notes")
 public class Note {
 
     //Pola
@@ -16,6 +18,6 @@ public class Note {
     private String title;
     private String content;
     private Integer userId;
-    private Date date;
+    private LocalDate date;
 
 }
