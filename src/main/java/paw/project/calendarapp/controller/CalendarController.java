@@ -32,9 +32,6 @@ public class CalendarController {
     @ModelAttribute
     public void calendar(Model model, @AuthenticationPrincipal User user){
         List<Note> notes = noteService.loadNotesByUserId(user.getId().intValue());
-//        for(int i=0;i<notes.size();i++){
-//            System.out.println(notes.get(i).getDate().toString());
-//        }
         this.calendar.setNotes(notes);
         model.addAttribute("calendar", this.calendar);
     }

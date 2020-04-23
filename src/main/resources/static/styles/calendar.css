@@ -24,7 +24,6 @@ body{
     padding: 10px;
 }
 .calendar{
-    padding: 5px;
     margin-left: auto;
     margin-right: auto;
     width: 745px;
@@ -33,26 +32,33 @@ body{
     padding: 5px;
     background-color: grey;
     float: left;
-    margin: 5px;
-    width: 85px;
+    width: 95px;
     height: 20px;
     text-align: center;
+    margin: -1px 0 0 -1px;
 }
 .day{
     padding: 5px;
     background-color: grey;
     float: left;
+    width: 93px;
+    height: 93px;
+    border: 1px solid black;
+    margin: -1px 0 0 -1px;
+}
+.note{
     margin: 5px;
-    width: 85px;
-    height: 85px;
+    padding: 5px;
+    background-color: lightblue;
+    border-radius: 5px;
 }
 .blankDay{
     padding: 5px;
     background-color: darkgrey;
     float: left;
-    margin: 5px;
-    width: 85px;
-    height: 85px;
+    width: 95px;
+    height: 95px;
+    margin: -1px 0 0 -1px;
 }
 .next{
     position: fixed;
