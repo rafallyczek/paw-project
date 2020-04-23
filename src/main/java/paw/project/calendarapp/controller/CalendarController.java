@@ -31,8 +31,7 @@ public class CalendarController {
     //Dodaj do modelu obiekt Calendar
     @ModelAttribute
     public void calendar(Model model, @AuthenticationPrincipal User user){
-        List<Note> notes = noteService.loadNotesByUserId(user.getId().intValue());
-        this.calendar.setNotes(notes);
+        loadNotes(user);
         model.addAttribute("calendar", this.calendar);
     }
 
@@ -56,6 +55,12 @@ public class CalendarController {
         this.calendar.decrementMonth();
         model.addAttribute("calendar", this.calendar);
         return "redirect:/calendar";
+    }
+
+    //Wczytaj notki użytkownika i zapisz je do kalendarza
+    public void loadNotes(User user){
+        List<Note> notes = noteService.loadNotesByUserId(user.getId().intValue());
+        this.calendar.setNotes(notes);
     }
 
 }
