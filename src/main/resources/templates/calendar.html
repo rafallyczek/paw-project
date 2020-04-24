@@ -34,7 +34,7 @@
             <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
             <div class="day" th:id="'day'+${i}" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text" th:onclick="'modal('+${i}+');'">
                 <div class="modal" th:id="'modal'+${i}">
-                    <div class="modal-content" th:text="'Zawartość modala nr '+${i}+':'"></div>
+                    <div class="modal-content" th:text="'Zawartość modala nr '+${i}"></div>
                 </div>
                 [[${i}]]
                 <div class="note" th:each="note : ${calendar.notes}"
@@ -48,6 +48,7 @@
             <input type="submit" value="Wyloguj">
         </form>
     </div>
+    <!--  Wyświetl okno z danymi dnia  -->
     <script>
         function modal(i){
             var modal = document.getElementById("modal"+i);
