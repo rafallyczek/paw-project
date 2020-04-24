@@ -32,7 +32,10 @@
         </div>
         <div class="calendar">
             <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
-            <div class="day" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text">
+            <div class="day" th:id="'day'+${i}" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text" th:onclick="'modal('+${i}+');'">
+                <div class="modal" th:id="'modal'+${i}">
+                    <div class="modal-content" th:text="'Zawartość modala nr '+${i}+':'"></div>
+                </div>
                 [[${i}]]
                 <div class="note" th:each="note : ${calendar.notes}"
                      th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}" th:text="${note.title}"></div>
@@ -45,6 +48,19 @@
             <input type="submit" value="Wyloguj">
         </form>
     </div>
+    <script>
+        function modal(i){
+            var modal = document.getElementById("modal"+i);
+
+            modal.style.display = "block";
+
+            window.onclick = function () {
+                if(event.target == modal){
+                    modal.style.display = "none";
+                }
+            }
+        }
+    </script>
 
 </body>
 </html>

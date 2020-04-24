@@ -22,4 +22,27 @@ public class NoteService {
         return noteRepository.findAllByUserId(id);
     }
 
+    //Dodaj notkę
+    public void addNote(Note note){
+        noteRepository.save(note);
+    }
+
+    //Pobierz notkę po id
+    public Note getNote(Long id){
+        return noteRepository.findById(id).get();
+    }
+
+    //Aktualizuj notkę
+    public void updateNote(Note note){
+        Note newNote = noteRepository.findById(note.getId()).get();
+        newNote.setTitle(note.getTitle());
+        newNote.setContent(note.getContent());
+        noteRepository.save(newNote);
+    }
+
+    //Usuń notkę
+    public void deleteNote(Long id){
+        noteRepository.deleteById(id);
+    }
+
 }
