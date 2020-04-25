@@ -17,7 +17,7 @@ public class Calendar {
     private int daysInMonth = currentDate.lengthOfMonth(); // Ilość dni aktualnego miesiąca
     private int year = currentDate.getYear(); // Aktualny rok
     private int dayOfWeek = currentDate.getDayOfWeek().getValue(); // Dzień tygodnia pierwszego dnia miesiąca
-    private List<Note> notes;
+    private List<Note> notes; // Lista notek użytkownika
 
     //Metody
     //Następny miesiąc

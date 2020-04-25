@@ -47,6 +47,9 @@ body{
     margin: -1px 0 0 -1px;
     cursor: pointer;
 }
+.day:hover{
+    background-color: #737373;
+}
 .note{
     margin: 5px;
     padding: 5px;
@@ -99,9 +102,16 @@ h1{
     height: 100%;
     background-color: rgba(0,0,0,0.4);
 }
-.modal-content{
+.modalContent{
     background-color: white;
     margin: 15% auto;
-    padding: 5px;
-    width: 80%;
+    width: 70%;
+}
+.modalHeader{
+    padding: 5px 10px;
+    background-color: cornflowerblue;
+    color: white;
+}
+.modalBody{
+    padding: 5px 10px;
 }
