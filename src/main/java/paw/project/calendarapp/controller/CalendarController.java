@@ -12,6 +12,7 @@ import paw.project.calendarapp.model.Note;
 import paw.project.calendarapp.model.User;
 import paw.project.calendarapp.service.NoteService;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Controller
@@ -28,11 +29,15 @@ public class CalendarController {
         this.noteService = noteService;
     }
 
-    //Dodaj do modelu obiekt Calendar
+    //Ustaw atrybuty modelu
     @ModelAttribute
-    public void calendar(Model model, @AuthenticationPrincipal User user){
+    public void setModelAttributes(Model model, @AuthenticationPrincipal User user){
         loadNotes(user);
+        Note note = new Note();
+        note.setUserId(user.getId().intValue());
+        note.setDate(LocalDate.now());
         model.addAttribute("calendar", this.calendar);
+        model.addAttribute("note", note);
     }
 
     //Wyświetl kalendarz

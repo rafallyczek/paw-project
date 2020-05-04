@@ -19,22 +19,18 @@ public class NoteController {
         this.noteService = noteService;
     }
 
-    //Dodaj do modelu obiekt Note (nowa notka)
-    @ModelAttribute
-    public void note(Model model){
-        model.addAttribute("note",new Note());
-    }
-
     //Dodaj notkę
     @PostMapping("/add")
-    public void addNote(@ModelAttribute("note") Note note){
+    public String addNote(@ModelAttribute("note") Note note){
         noteService.addNote(note);
+        return "redirect:/calendar";
     }
 
     //Aktualizuj notkę
     @PostMapping("/update")
-    public void updateNote(@ModelAttribute("retrievednote") Note note){
+    public String updateNote(@ModelAttribute("retrievednote") Note note){
         noteService.updateNote(note);
+        return "redirect:/calendar";
     }
 
     //Pobierz notkę i zapisz ją w modelu (notka do edycji)

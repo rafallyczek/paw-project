@@ -14,6 +14,10 @@ body{
     width: 980px;
     background-color: darkgray;
     padding: 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
 }
 .container{
     margin-top: 10px;
@@ -22,6 +26,10 @@ body{
     width: 1180px;
     background-color: darkgray;
     padding: 10px;
+    border-radius: 5px;
+    -webkit-box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
+    -moz-box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
+    box-shadow: 0 0 3px 1px rgba(0,0,0,0.7);
 }
 .form{
     padding: 5px;

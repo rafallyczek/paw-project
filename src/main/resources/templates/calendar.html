@@ -34,12 +34,39 @@
             <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
             <div class="day" th:id="'day'+${i}" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text" th:onclick="'modal('+${i}+');'">
                 <div class="modal" th:id="'modal'+${i}">
-                    <div class="modalContent">
+                    <div class="modalContent" th:id="'info'+${i}">
                         <div class="modalHeader">
-                            <h2 th:text="'Modal nr '+${i}"></h2>
+                            <h2 th:text="${i}+' '+${calendar.monthName}+' '+${calendar.year}"></h2>
                         </div>
                         <div class="modalBody">
-                            <p>Tu będą szczegóły dnia</p>
+                            <button id="addButton" th:onclick="'showAddForm('+${i}+');'">Dodaj notkę</button>
+                            <div class="note" th:each="note : ${calendar.notes}" th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}">
+                                <div class="noteHeader" th:text="${note.title}"></div>
+                                <div class="noteBody" th:text="${note.content}"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modalContent" th:id="'addForm'+${i}" style="display: none;">
+                        <div class="modalHeader">
+                            <h2>Dodaj notkę</h2>
+                        </div>
+                        <div class="modalBody">
+                            <form method="POST" th:action="@{/notes/add}" th:object="${note}">
+                                <div class="formInputs">
+                                    <label for="title">Tytuł</label>
+                                    <input id="title" type="text" th:field="*{title}">
+                                </div>
+                                <div class="formInputs">
+                                    <label for="content">Tekst</label>
+                                    <input id="content" type="text" th:field="*{content}">
+                                </div>
+                                <div style="clear: both"></div>
+                                <input id="userId" type="hidden" th:field="*{userId}">
+                                <input id="date" type="hidden" th:field="*{date}">
+                                <input type="submit" value="Dodaj">
+                                <input type="reset" value="Resetuj">
+                            </form>
+                            <button id="backButton" th:onclick="'showInfo('+${i}+');'">Wróć</button>
                         </div>
                     </div>
                 </div>
@@ -55,20 +82,6 @@
             <input type="submit" value="Wyloguj">
         </form>
     </div>
-    <!--  Wyświetl okno z danymi dnia  -->
-    <script>
-        function modal(i){
-            var modal = document.getElementById("modal"+i);
-
-            modal.style.display = "block";
-
-            window.onclick = function () {
-                if(event.target == modal){
-                    modal.style.display = "none";
-                }
-            }
-        }
-    </script>
-
+    <script type="text/javascript" src="/js/calendar.js"></script>
 </body>
 </html>
