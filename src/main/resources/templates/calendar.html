@@ -20,6 +20,7 @@
     </div>
 
     <div class="container">
+        <!--    Nagłówek kalendarza z nazwami dni    -->
         <div class="calendar">
             <div class="dayName">Poniedziałek</div>
             <div class="dayName">Wtorek</div>
@@ -30,39 +31,62 @@
             <div class="dayName">Niedziela</div>
             <div style="clear: both;"></div>
         </div>
+        <!--Kalendarz-->
         <div class="calendar">
+            <!--Generowanie pustych pól-->
             <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
+            <!--Generowanie pól z dniami-->
             <div class="day" th:id="'day'+${i}" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text" th:onclick="'modal('+${i}+');'">
+                <!--Okno modalne zawierające szczegóły dnia-->
                 <div class="modal" th:id="'modal'+${i}">
+                    <!--Okno zawierające informacje o szczegółach dnia-->
                     <div class="modalContent" th:id="'info'+${i}">
+                        <!--Nagłówek okna modalnego-->
                         <div class="modalHeader">
                             <h2 th:text="${i}+' '+${calendar.monthName}+' '+${calendar.year}"></h2>
                         </div>
+                        <!--Ciało okna modalnego-->
                         <div class="modalBody">
+                            <!--Pokaż okno dodawania nowej notki-->
                             <button id="addButton" th:onclick="'showAddForm('+${i}+');'">Dodaj notkę</button>
+                            <!--Wyświetl notki-->
                             <div class="note" th:each="note : ${calendar.notes}" th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}">
+                                <!--Nagłówek notki-->
                                 <div class="noteHeader" th:inline="text">
                                     [[${note.title}]]
+                                    <!--Usuń notkę-->
                                     <a th:href="@{/notes/delete/{id}(id=${note.id})}" class="deleteButton">
                                         <i class="icon-cancel">
                                             <span class="tooltip">Usuń notkę</span>
                                         </i>
                                     </a>
-                                    <a class="editButton">
+                                    <!--Edytuj notkę-->
+                                    <a th:data-index="${i}"
+                                       th:data-id="${note.id}"
+                                       th:data-userId="${note.userId}"
+                                       th:data-title="${note.title}"
+                                       th:data-content="${note.content}"
+                                       th:data-date="${note.date}"
+                                            onclick="showEditForm(this.getAttribute('data-index'),this.getAttribute('data-id'),this.getAttribute('data-userId'),this.getAttribute('data-title'),this.getAttribute('data-content'),this.getAttribute('data-date'))" class="editButton">
                                         <i class="icon-pencil">
                                             <span class="tooltip">Edytuj notkę</span>
                                         </i>
                                     </a>
                                 </div>
+                                <!--Ciało notki-->
                                 <div class="noteBody" th:text="${note.content}"></div>
                             </div>
                         </div>
                     </div>
+                    <!--Okno zawierające formularz dodający nową notkę-->
                     <div class="modalContent" th:id="'addForm'+${i}" style="display: none;">
+                        <!--Nagłówek okna modalnego-->
                         <div class="modalHeader">
                             <h2>Dodaj notkę</h2>
                         </div>
+                        <!--Ciało okna modalnego-->
                         <div class="modalBody">
+                            <!--Formularz dodający nową notkę-->
                             <form method="POST" th:action="@{/notes/add}" th:object="${note}">
                                 <div class="formInputs">
                                     <label for="title">Tytuł</label>
@@ -78,18 +102,52 @@
                                 <input type="submit" value="Dodaj">
                                 <input type="reset" value="Resetuj">
                             </form>
+                            <!--Powrót do szczegółów dnia-->
                             <button id="backButton" th:onclick="'showInfo('+${i}+');'">Wróć</button>
+                        </div>
+                    </div>
+                    <!--Okno zawierające formularz edytujący notkę-->
+                    <div class="modalContent" th:id="'editForm'+${i}" style="display: none;">
+                        <!--Nagłówek okna modalnego-->
+                        <div class="modalHeader">
+                            <h2 th:inline="text">Edytuj notkę: [[${note.title}]]</h2>
+                        </div>
+                        <!--Ciało okna modalnego-->
+                        <div class="modalBody">
+                            <!--Formularz edytujący notkę-->
+                            <form method="POST" th:action="@{/notes/update}" th:object="${note}">
+                                <input th:id="'idEdit'+${i}" type="hidden" th:field="*{id}">
+                                <div class="formInputs">
+                                    <label th:for="'titleEdit'+${i}">Tytuł</label>
+                                    <input th:id="'titleEdit'+${i}" type="text" th:field="*{title}">
+                                </div>
+                                <div class="formInputs">
+                                    <label th:for="'contentEdit'+${i}">Tekst</label>
+                                    <input th:id="'contentEdit'+${i}" type="text" th:field="*{content}">
+                                </div>
+                                <div style="clear: both"></div>
+                                <input th:id="'userIdEdit'+${i}" type="hidden" th:field="*{userId}">
+                                <input th:id="'dateEdit'+${i}" type="hidden" th:field="*{date}">
+                                <input type="submit" value="Zapisz">
+                                <input type="reset" value="Resetuj">
+                            </form>
+                            <!--Powrót do szczegółów dnia-->
+                            <button class="backButton" th:onclick="'showInfo('+${i}+');'">Wróć</button>
                         </div>
                     </div>
                 </div>
                 [[${i}]]
+                <!--Wyświetlanie notek w polu dnia-->
                 <div class="note" th:each="note : ${calendar.notes}"
                      th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}" th:text="${note.title}"></div>
             </div>
             <div style="clear: both;"></div>
         </div>
+        <!--Przejście do następnego miesiąca-->
         <a class="next" href="/calendar/next"><i class="icon-right-open"></i></a>
+        <!--Przejście do poprzedniego miesiąca-->
         <a class="previous" href="/calendar/previous"><i class="icon-left-open"></i></a>
+        <!--Wylogowywanie-->
         <form method="POST" th:action="@{/logout}">
             <input type="submit" value="Wyloguj">
         </form>

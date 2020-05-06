@@ -151,7 +151,7 @@ h1{
     right: 25px;
     color: midnightblue;
 }
-#backButton{
+.backButton{
     margin-top: 5px;
 }
 .tooltip{

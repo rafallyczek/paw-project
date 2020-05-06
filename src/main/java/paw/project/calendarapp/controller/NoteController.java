@@ -28,7 +28,7 @@ public class NoteController {
 
     //Aktualizuj notkę
     @PostMapping("/update")
-    public String updateNote(@ModelAttribute("retrievednote") Note note){
+    public String updateNote(@ModelAttribute("note") Note note){
         noteService.updateNote(note);
         return "redirect:/calendar";
     }

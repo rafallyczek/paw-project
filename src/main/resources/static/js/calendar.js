@@ -22,7 +22,23 @@ function showAddForm(i){
 function showInfo(i){
     var info = document.getElementById("info"+i);
     var addForm = document.getElementById("addForm"+i)
+    var editForm = document.getElementById("editForm"+i);
 
+    editForm.style.display = "none";
     addForm.style.display = "none";
     info.style.display = "block";
+}
+//Wyświetl formularz edycji
+function showEditForm(i,id,userId,title,content,date) {
+    var info = document.getElementById("info"+i);
+    var editForm = document.getElementById("editForm"+i);
+
+    document.getElementById("idEdit"+i).value = id;
+    document.getElementById("userIdEdit"+i).value = userId;
+    document.getElementById("titleEdit"+i).value = title;
+    document.getElementById("contentEdit"+i).value = content;
+    document.getElementById("dateEdit"+i).value = date;
+
+    info.style.display = "none";
+    editForm.style.display = "block";
 }
