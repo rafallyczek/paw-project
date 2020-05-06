@@ -145,6 +145,12 @@ h1{
     right: 0;
     color: midnightblue;
 }
+.editButton{
+    position: absolute;
+    top: 0;
+    right: 25px;
+    color: midnightblue;
+}
 #backButton{
     margin-top: 5px;
 }
@@ -170,5 +176,17 @@ h1{
     border-color: grey transparent transparent transparent;
 }
 .icon-cancel:hover .tooltip{
+    visibility: visible;
+}
+.icon-pencil .tooltip::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 40px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: grey transparent transparent transparent;
+}
+.icon-pencil:hover .tooltip{
     visibility: visible;
 }
