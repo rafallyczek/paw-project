@@ -68,6 +68,7 @@ body{
     font-weight: bold;
     padding: 5px;
     border-bottom: 1px solid lightcyan;
+    position: relative;
 }
 .noteBody{
     padding: 5px;
@@ -138,6 +139,36 @@ h1{
     float: left;
     margin: 0 5px 5px 0;
 }
+.deleteButton{
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: midnightblue;
+}
 #backButton{
     margin-top: 5px;
+}
+.tooltip{
+    visibility: hidden;
+    position: absolute;
+    bottom: 120%;
+    right: -30px;
+    background-color: grey;
+    color: white;
+    text-align: center;
+    width: 80px;
+    padding: 5px;
+    border-radius: 5px;
+}
+.icon-cancel .tooltip::after{
+    content: "";
+    position: absolute;
+    top: 100%;
+    right: 40px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: grey transparent transparent transparent;
+}
+.icon-cancel:hover .tooltip{
+    visibility: visible;
 }

@@ -42,8 +42,9 @@ public class NoteController {
 
     //Usuń notkę
     @RequestMapping("/delete/{id}")
-    public void deleteNote(@PathVariable Long id){
+    public String deleteNote(@PathVariable Long id){
         noteService.deleteNote(id);
+        return "redirect:/calendar";
     }
 
 }
