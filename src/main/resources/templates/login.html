@@ -19,19 +19,21 @@
 
 <div class="container">
 
-    <form th:method="POST" th:action="@{/login}">
-        <div class="formInputs">
-            <label for="username">Nazwa użytkownika</label>
-            <input id="username" name="username" type="text">
-        </div>
-        <div class="formInputs">
-            <label for="password">Hasło</label>
-            <input id="password" name="password" type="password">
-        </div>
-        <div style="clear: both"></div>
-        <input type="submit" value="Zaloguj">
-    </form>
-    <a class="register" href="/register">Nie masz konta? Zarejestruj się</a>
+    <div class="loginForm">
+        <form th:method="POST" th:action="@{/login}">
+            <div class="formInputs">
+                <label for="username">Nazwa użytkownika</label>
+                <input id="username" name="username" type="text">
+            </div>
+            <div class="formInputs">
+                <label for="password">Hasło</label>
+                <input id="password" name="password" type="password">
+            </div>
+            <input type="submit" value="Zaloguj">
+        </form>
+        <a href="/register">Nie masz konta? Zarejestruj się</a>
+    </div>
+
 
 </div>
 

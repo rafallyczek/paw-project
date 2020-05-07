@@ -48,7 +48,11 @@
                         <!--Ciało okna modalnego-->
                         <div class="modalBody">
                             <!--Pokaż okno dodawania nowej notki-->
-                            <button id="addButton" th:onclick="'showAddForm('+${i}+');'">Dodaj notkę</button>
+                            <button id="addButton"
+                                    th:data-index="${i}"
+                                    th:data-month="${calendar.month}"
+                                    th:data-year="${calendar.year}"
+                                    onclick="showAddForm(this.getAttribute('data-index'),this.getAttribute('data-month'),this.getAttribute('data-year'));">Dodaj notkę</button>
                             <!--Wyświetl notki-->
                             <div class="note" th:each="note : ${calendar.notes}" th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}">
                                 <!--Nagłówek notki-->
@@ -98,7 +102,7 @@
                                 </div>
                                 <div style="clear: both"></div>
                                 <input id="userId" type="hidden" th:field="*{userId}">
-                                <input id="date" type="hidden" th:field="*{date}">
+                                <input th:id="'date'+${i}" type="hidden" th:field="*{date}">
                                 <input type="submit" value="Dodaj">
                                 <input type="reset" value="Resetuj">
                             </form>

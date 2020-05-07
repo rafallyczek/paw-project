@@ -19,7 +19,7 @@
 
 <div class="container">
 
-    <div class="form">
+    <div class="registerForm">
 
         <form method="POST" th:action="@{/register}" th:object="${user}">
             <div class="formInputs">
@@ -34,10 +34,11 @@
                 <label for="email">Email</label>
                 <input id="email" type="email" th:field="*{email}">
             </div>
-            <div style="clear: both"></div>
             <input type="submit" value="Zarejestruj">
             <input type="reset" value="Resetuj">
+            <div style="clear: both"></div>
         </form>
+        <a href="/login">Powrót do logowania</a>
 
     </div>
 

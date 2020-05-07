@@ -35,7 +35,6 @@ public class CalendarController {
         loadNotes(user);
         Note note = new Note();
         note.setUserId(user.getId().intValue());
-        note.setDate(LocalDate.now());
         model.addAttribute("calendar", this.calendar);
         model.addAttribute("note", note);
     }

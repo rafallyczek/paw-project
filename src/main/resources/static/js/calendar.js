@@ -11,9 +11,14 @@ function modal(i){
     }
 }
 //Schowaj info i wyświetl dodawanie
-function showAddForm(i){
+function showAddForm(i,month,year){
     var info = document.getElementById("info"+i);
     var addForm = document.getElementById("addForm"+i)
+
+    var stringMonth = month<10 ? "0"+month : month;
+    var stringDay = i<10 ? "0"+i : i;
+
+    document.getElementById("date"+i).value = year + "-" + stringMonth + "-" + stringDay;
 
     info.style.display = "none";
     addForm.style.display = "block";

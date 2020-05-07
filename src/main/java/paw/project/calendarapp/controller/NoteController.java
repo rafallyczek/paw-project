@@ -22,6 +22,7 @@ public class NoteController {
     //Dodaj notkę
     @PostMapping("/add")
     public String addNote(@ModelAttribute("note") Note note){
+        System.out.println(note.getDate());
         noteService.addNote(note);
         return "redirect:/calendar";
     }
