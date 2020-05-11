@@ -12,6 +12,11 @@
         <h1>CalendarApp</h1>
     </div>
 
+    <div class="navBar">
+        <a th:href="@{/}">Strona główna</a>
+        <a th:href="@{/calendar}">Kalendarz</a>
+    </div>
+
     <div class="calendarHeader">
 
         <p class="year" th:text="${calendar.year}"></p>
