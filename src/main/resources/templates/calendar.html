@@ -71,7 +71,12 @@
                                        th:data-title="${note.title}"
                                        th:data-content="${note.content}"
                                        th:data-date="${note.date}"
-                                            onclick="showEditForm(this.getAttribute('data-index'),this.getAttribute('data-id'),this.getAttribute('data-userId'),this.getAttribute('data-title'),this.getAttribute('data-content'),this.getAttribute('data-date'))" class="editButton">
+                                       onclick="showEditForm(this.getAttribute('data-index'),
+                                                            this.getAttribute('data-id'),
+                                                            this.getAttribute('data-userId'),
+                                                            this.getAttribute('data-title'),
+                                                            this.getAttribute('data-content'),
+                                                            this.getAttribute('data-date'))" class="editButton">
                                         <i class="icon-pencil">
                                             <span class="tooltip">Edytuj notkę</span>
                                         </i>
