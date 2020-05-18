@@ -12,7 +12,6 @@ import paw.project.calendarapp.model.Note;
 import paw.project.calendarapp.model.User;
 import paw.project.calendarapp.service.NoteService;
 
-import java.time.LocalDate;
 import java.util.List;
 
 @Controller

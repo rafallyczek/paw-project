@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>CalendarApp</title>
-    <link rel="stylesheet" type="text/css" href="/styles/home.css">
+    <link rel="stylesheet" type="text/css" href="/styles/list.css">
 </head>
 <body>
 
@@ -19,15 +19,19 @@
     </div>
 </div>
 
-<div class="homeHeader">
+<div class="listHeader">
 
-    <p class="title">Strona główna</p>
+    <p class="title">Lista Notek</p>
 
 </div>
 
 <div class="container">
 
-    <p class="hello">Witaj na stronie głównej.</p>
+    <div class="note" th:each="note : ${notes}">
+        <div class="noteHeader" th:text="${note.title}"></div>
+        <div class="noteBody" th:text="${note.content}"></div>
+    </div>
+    <div style="clear: both;"></div>
 
 </div>
 
