@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <title>CalendarApp</title>
@@ -7,6 +7,17 @@
     <link rel="stylesheet" type="text/css" href="/fontello/css/fontello.css">
 </head>
 <body>
+    <!--Wylogowywanie-->
+    <div class="userBar" sec:authorize="isAuthenticated()">
+        <div class="bar">
+            <span>Użytkownik:</span>
+            <p sec:authentication="name"></p>
+            <form method="POST" th:action="@{/logout}">
+                <input type="submit" value="Wyloguj">
+            </form>
+            <div style="clear: both;"></div>
+        </div>
+    </div>
 
     <div class="header">
         <h1>CalendarApp</h1>
@@ -164,11 +175,24 @@
         <a class="next" href="/calendar/next"><i class="icon-right-open"></i></a>
         <!--Przejście do poprzedniego miesiąca-->
         <a class="previous" href="/calendar/previous"><i class="icon-left-open"></i></a>
-        <!--Wylogowywanie-->
-        <form method="POST" th:action="@{/logout}">
-            <input type="submit" value="Wyloguj">
-        </form>
     </div>
     <script type="text/javascript" src="/js/calendar.js"></script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
