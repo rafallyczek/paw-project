@@ -1,14 +1,22 @@
 package paw.project.calendarapp.controller;
 
+import com.itextpdf.text.DocumentException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import paw.project.calendarapp.model.Note;
 import paw.project.calendarapp.model.User;
+import paw.project.calendarapp.pdf.Pdf;
 import paw.project.calendarapp.service.NoteService;
 
+
+import java.io.*;
 import java.util.List;
 
 @Controller
@@ -30,9 +38,21 @@ public class NoteController {
         model.addAttribute("notes", notes);
     }
 
+    //Wyświetl listę notek
     @GetMapping("/list")
     public String showNoteList(){
         return "list";
+    }
+
+    //Pobierz pdf
+    @GetMapping("/pdf")
+    public ResponseEntity<InputStreamResource> pdf(@AuthenticationPrincipal User user) throws DocumentException {
+        List<Note> notes = getAllNotes(user);
+        Pdf pdf = new Pdf(notes);
+        ByteArrayInputStream in = pdf.buildPdf();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Content-Disposition","attachment; filename=notes.pdf");
+        return ResponseEntity.ok().headers(headers).contentType(MediaType.APPLICATION_PDF).body(new InputStreamResource(in));
     }
 
     //Dodaj notkę
