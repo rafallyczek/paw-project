@@ -13,7 +13,7 @@
         <span>Użytkownik:</span>
         <p sec:authentication="name"></p>
         <form method="POST" th:action="@{/logout}">
-            <input type="submit" value="Wyloguj">
+            <input class="reset" type="submit" value="Wyloguj">
         </form>
         <div style="clear: both;"></div>
     </div>
@@ -54,8 +54,8 @@
                 <label for="email">Email</label>
                 <input id="email" type="email" th:field="*{email}">
             </div>
-            <input type="submit" value="Zarejestruj">
-            <input type="reset" value="Resetuj">
+            <input class="register" type="submit" value="Zarejestruj">
+            <input class="reset" type="reset" value="Resetuj">
             <div style="clear: both"></div>
         </form>
         <a href="/login">Powrót do logowania</a>

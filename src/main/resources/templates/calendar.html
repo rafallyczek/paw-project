@@ -13,7 +13,7 @@
             <span>Użytkownik:</span>
             <p sec:authentication="name"></p>
             <form method="POST" th:action="@{/logout}">
-                <input type="submit" value="Wyloguj">
+                <input class="logout" type="submit" value="Wyloguj">
             </form>
             <div style="clear: both;"></div>
         </div>
