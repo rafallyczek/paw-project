@@ -46,7 +46,7 @@ public class NoteController {
 
     //Pobierz pdf
     @GetMapping("/pdf")
-    public ResponseEntity<InputStreamResource> pdf(@AuthenticationPrincipal User user) throws DocumentException {
+    public ResponseEntity<InputStreamResource> pdf(@AuthenticationPrincipal User user) throws DocumentException, IOException {
         List<Note> notes = getAllNotes(user);
         Pdf pdf = new Pdf(notes);
         ByteArrayInputStream in = pdf.buildPdf();
