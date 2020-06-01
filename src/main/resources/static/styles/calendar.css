@@ -54,6 +54,8 @@ body{
     border: 1px solid black;
     margin: -1px 0 0 -1px;
     cursor: pointer;
+    overflow: hidden;
+    column-width: 93px;
 }
 .day:hover{
     background-color: #737373;
@@ -72,6 +74,17 @@ body{
 }
 .noteBody{
     padding: 5px;
+}
+.miniNote{
+    margin: 5px;
+    padding: 5px;
+    background-color: lightblue;
+    border-radius: 5px;
+    max-width: 80px;
+    max-height: 20px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    break-inside: avoid;
 }
 .blankDay{
     padding: 5px;

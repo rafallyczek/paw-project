@@ -56,6 +56,7 @@
             <div class="blankDay" th:if="${calendar.dayOfWeek>1}" th:each="i : ${#numbers.sequence(1,(calendar.dayOfWeek)-1)}"></div>
             <!--Generowanie pól z dniami-->
             <div class="day" th:id="'day'+${i}" th:each="i : ${#numbers.sequence(1,calendar.daysInMonth)}" th:inline="text" th:onclick="'modal('+${i}+');'">
+                [[${i}]]
                 <!--Okno modalne zawierające szczegóły dnia-->
                 <div class="modal" th:id="'modal'+${i}">
                     <!--Okno zawierające informacje o szczegółach dnia-->
@@ -164,9 +165,8 @@
                         </div>
                     </div>
                 </div>
-                [[${i}]]
                 <!--Wyświetlanie notek w polu dnia-->
-                <div class="note" th:each="note : ${calendar.notes}"
+                <div class="miniNote" th:each="note : ${calendar.notes}"
                      th:if="${note.date.isEqual(#temporals.create(calendar.year,calendar.month,i))}" th:text="${note.title}"></div>
             </div>
             <div style="clear: both;"></div>
