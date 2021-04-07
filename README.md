@@ -6,7 +6,9 @@ Simple calendar application created with Spring framework.
 * Spring Security
 * Spring Data JPA
 * Thymeleaf
+## Other
 * iText
+* Fontello fonts
 ## App features
 * Creating and editing notes in calendar
 * Access restrictions (application protected with Spring Security; registering users, logging in to app)
